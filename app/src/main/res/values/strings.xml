@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Recipe</string>
+    <string name="saved_recipes">Saved Recipes</string>
+    <string name="no_recipe_found">No recipe found</string>
+    <string name="recipedetail">RecipeDetail</string>
+    <string name="servings_ready_in_minutes">%1$s servings, ready in %2$s minutes</string>
+    <string name="settings">Settings</string>
+</resources>
