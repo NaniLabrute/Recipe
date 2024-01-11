@@ -1,10 +1,11 @@
 package com.example.recipe.domain.repository
 
 import com.example.recipe.domain.model.RecipeDetail
+import com.example.recipe.domain.model.SearchRecipe
 
 interface RecipeRepository {
-    fun getSearchRecipes(query: String)
+    suspend fun getSearchRecipes(query: String): List<SearchRecipe>
 
-    fun getRecipeDetail(id: String)
+    suspend fun getRecipeDetail(id: String): RecipeDetail?
 
 }

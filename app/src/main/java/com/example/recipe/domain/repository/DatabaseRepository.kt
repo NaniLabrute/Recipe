@@ -1,16 +1,15 @@
 package com.example.recipe.domain.repository
 
 import com.example.recipe.domain.model.RecipeDetail
-import kotlinx.coroutines.flow.MutableStateFlow
 
 interface DatabaseRepository {
-    fun getRecipes()
+    suspend fun getRecipes(): List<RecipeDetail>
 
-    fun saveRecipeDetail(recipeDetail: RecipeDetail)
+    suspend fun saveRecipeDetail(recipeDetail: RecipeDetail)
 
-    fun getRecipeDetail(id: String)
+    suspend fun getRecipeDetail(id: String):RecipeDetail?
 
-    fun deleteRecipeDetail(id: String)
+    suspend fun deleteRecipeDetail(id: String)
 
-    fun deleteSavedRecipes()
+    suspend fun deleteSavedRecipes()
 }

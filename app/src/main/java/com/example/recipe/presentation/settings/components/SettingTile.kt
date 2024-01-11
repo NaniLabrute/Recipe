@@ -17,6 +17,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.recipe.R
 import com.example.recipe.presentation.settings.SettingsViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -40,8 +42,8 @@ fun SettingTileDeleteSavedRecipes(title: String, settingsViewModel: SettingsView
                     settingsViewModel.deleteSavedRecipes()
                     openAlertDialog.value = false
                 },
-                dialogTitle = "Delete all the saved recipes",
-                dialogText = "Are you sure to delete all the saved recipes?",
+                dialogTitle = stringResource(R.string.delete_all_the_saved_recipes),
+                dialogText = stringResource(R.string.are_you_sure_to_delete_all_the_saved_recipes),
                 icon = Icons.Default.Warning
             )
         }

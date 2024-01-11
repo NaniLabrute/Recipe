@@ -2,8 +2,6 @@ package com.example.recipe.presentation.home.components
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -22,11 +20,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
-import com.example.recipe.presentation.components.Loading
+import com.example.recipe.R
 import com.example.recipe.presentation.components.Error
 import com.example.recipe.presentation.home.HomeViewModel
 import kotlinx.coroutines.launch
@@ -45,7 +42,7 @@ fun SearchRecipeBar(navController: NavController, homeViewModel: HomeViewModel, 
         onSearch = {active = false},
         active = active,
         onActiveChange ={active = it},
-        placeholder = { Text(text = "Search a recipe") },
+        placeholder = { Text(text = stringResource(R.string.search_a_recipe)) },
         leadingIcon = {
             IconButton(
                 onClick = {scope.launch {drawerState.open()}}
@@ -60,7 +57,6 @@ fun SearchRecipeBar(navController: NavController, homeViewModel: HomeViewModel, 
             if(active) {
                 Icon(
                     modifier = Modifier.clickable {
-                        //close the searchbar if empty
                         if(query.isNotEmpty()){
                             query = ""
                         } else {
@@ -76,15 +72,10 @@ fun SearchRecipeBar(navController: NavController, homeViewModel: HomeViewModel, 
         }
     ){
         val searchRecipes = homeViewModel.getSearchRecipes(query).collectAsState()
-
-        when {
-            // If the recipes are null, show the loading state
-            //searchRecipes.value == null -> Loading()
-            // If the recipes are empty, show the error state
-            searchRecipes.value.isEmpty() -> Error("No recipe found")
-            // If the movies are not empty, show the movie list
-            else -> RecipeSearchList(navController, searchRecipes.value)
+        if(searchRecipes.value.isEmpty()){
+            Error(stringResource(R.string.no_recipe_found_search_recipe_bar))
+        } else {
+            RecipeSearchList(navController, searchRecipes.value)
         }
     }
 }
-
