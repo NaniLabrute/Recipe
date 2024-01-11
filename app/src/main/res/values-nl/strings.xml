@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Recept</string>
+    <string name="saved_recipes">Opgeslagen recepten</string>
+    <string name="no_recipe_found">Geen recept gevonden</string>
+    <string name="recipedetail">Receptdetail</string>
+    <string name="servings_ready_in_minutes">%1$s porties, klaar in %2$s minuten</string>
+    <string name="settings">Instellingen</string>
+    <string name="delete_all_the_saved_recipes">Verwijder alle opgeslagen recepten</string>
+    <string name="are_you_sure_to_delete_all_the_saved_recipes">Weet u zeker dat u alle opgeslagen recepten wilt verwijderen?</string>
+    <string name="delete_all_saved_recipes">Verwijder alle opgeslagen recepten</string>
+    <string name="search_a_recipe">Zoek een recept</string>
+    <string name="no_recipe_found_search_recipe_bar">Geen recept gevonden</string>
+    <string name="home">Thuis</string>
+    <string name="settings_2">Instellingen</string>
+</resources>

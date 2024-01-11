@@ -10,4 +10,6 @@
     <string name="delete_all_saved_recipes">Delete All Saved Recipes</string>
     <string name="search_a_recipe">Search a recipe</string>
     <string name="no_recipe_found_search_recipe_bar">No recipe found</string>
+    <string name="home">Home</string>
+    <string name="settings_2">Settings</string>
 </resources>
