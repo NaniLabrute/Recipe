@@ -55,7 +55,7 @@ fun RecipeDetailCard(
             )
         }
         IconButton(
-            onClick = { detailViewModel.switchFavorite(recipeDetail.id);navController.popBackStack()},
+            onClick = { navController.popBackStack(); detailViewModel.switchFavorite(recipeDetail.id);},
             modifier = Modifier.padding(8.dp)
         ) {
             Icon(

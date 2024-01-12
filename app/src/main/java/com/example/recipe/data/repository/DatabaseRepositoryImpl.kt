@@ -8,16 +8,20 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
 
-fun toObject(document: DocumentSnapshot): RecipeDetail{
+fun toObject(document: DocumentSnapshot): RecipeDetail?{
     val data = document.data
-    return RecipeDetail(
-        id = data?.get("id") as String,
-        title = data["title"] as String,
-        image = data["image"] as String,
-        imageType = data["imageType"] as String,
-        servings = (data["servings"] as Long).toInt(),
-        readyInMinutes = (data["readyInMinutes"] as Long).toInt()
-    )
+    if (data != null){
+        return RecipeDetail(
+            id = data["id"] as String,
+            title = data["title"] as String,
+            image = data["image"] as String,
+            imageType = data["imageType"] as String,
+            servings = (data["servings"] as Long).toInt(),
+            readyInMinutes = (data["readyInMinutes"] as Long).toInt()
+        )
+    } else {
+        return null
+    }
 }
 
 class DatabaseRepositoryImpl: DatabaseRepository {
